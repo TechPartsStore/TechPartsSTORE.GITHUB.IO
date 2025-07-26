@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>فروشگاه قطعات کامپیوتر</title>
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      margin: 0;
+      direction: rtl;
+      background: #f9f9f9;
+    }
+
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 15px 25px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      background: #34495e;
+      color: white;
+      padding: 12px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      display: none;
+    }
+
+    nav {
+      background: #34495e;
+      display: none;
+      flex-direction: column;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      display: block;
+      border-top: 1px solid #2c3e50;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      background: #1abc9c;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    .category {
+      display: none;
+    }
+
+    .category.active {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 12px;
+      text-align: center;
+    }
+
+    .product-card img {
+      max-width: 100%;
+      height: 140px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .product-name {
+      font-weight: bold;
+      font-size: 15px;
+      min-height: 42px;
+      color: #333;
+    }
+
+    .product-price {
+      color: #27ae60;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    @media (min-width: 768px) {
+      .menu-toggle {
+        display: none;
+      }
+
+      nav {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      nav a {
+        border-top: none;
+        padding: 15px 25px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>فروشگاه قطعات کامپیوتر</header>
+  <div class="menu-toggle" onclick="toggleMenu()">☰ دسته‌بندی‌ها</div>
+  <nav id="main-menu">
+    <a href="#" onclick="showCategory('laptop')">لپ‌تاپ</a>
+    <a href="#" onclick="showCategory('cpu')">پردازنده</a>
+    <a href="#" onclick="showCategory('ram')">رم</a>
+    <a href="#" onclick="showCategory('storage')">هارد / SSD</a>
+    <a href="#" onclick="showCategory('gpu')">کارت گرافیک</a>
+  </nav>
+
+  <div class="container">
+
+    <div id="laptop" class="category">
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71vFKBpKakL._AC_SL1500_.jpg" alt="MacBook Air M2">
+        <div class="product-name">Apple MacBook Air M2</div>
+        <div class="product-price">۴۲,۵۰۰,۰۰۰ تومان</div>
+      </div>
+      <div class="product-card">
+        <img src="https://cdn.mos.cms.futurecdn.net/AkhWDjrvWfekdFmnP7VHp3.jpg" alt="Dell XPS 13">
+        <div class="product-name">Dell XPS 13</div>
+        <div class="product-price">۳۸,۰۰۰,۰۰۰ تومان</div>
+      </div>
+      <div class="product-card">
+        <img src="https://cdn.pocket-lint.com/r/s/1200x/assets/images/162595-laptops-review-hands-on-microsoft-surface-laptop-5-review-image1-cnru1lyvjv.jpg" alt="Surface Laptop 5">
+        <div class="product-name">Surface Laptop 5</div>
+        <div class="product-price">۳۴,۸۰۰,۰۰۰ تومان</div>
+      </div>
+    </div>
+
+    <div id="cpu" class="category">
+      <div class="product-card">
+        <img src="https://www.intel.com/content/dam/www/public/us/en/images/products/13th-gen-core/i9-13900k-1-1x1.jpg" alt="i9-13900K">
+        <div class="product-name">Intel Core i9-13900K</div>
+        <div class="product-price">۱۶,۰۰۰,۰۰۰ تومان</div>
+      </div>
+      <div class="product-card">
+        <img src="https://www.amd.com/system/files/2022-09/1867104-amd-ryzen-9-7950x-3d-packaging-1260x709.png" alt="Ryzen 9 7950X">
+        <div class="product-name">AMD Ryzen 9 7950X</div><div class="product-price">۱۵,۵۰۰,۰۰۰ تومان</div>
+      </div>
+    </div>
+
+    <div id="ram" class="category">
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71jXkFSEpFL._AC_SL1500_.jpg" alt="Corsair Vengeance 16GB">
+        <div class="product-name">Corsair Vengeance DDR4 16GB</div>
+        <div class="product-price">۱,۳۰۰,۰۰۰ تومان</div>
+      </div>
+    </div>
+
+    <div id="storage" class="category">
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/61c+5K8tBFL._AC_SL1500_.jpg" alt="Samsung 980 Pro">
+        <div class="product-name">Samsung 980 Pro 1TB SSD</div>
+        <div class="product-price">۳,۷۰۰,۰۰۰ تومان</div>
+      </div>
+    </div>
+
+    <div id="gpu" class="category">
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71ZSnMZEyyL._AC_SL1500_.jpg" alt="RTX 4070 Ti">
+        <div class="product-name">NVIDIA RTX 4070 Ti</div>
+        <div class="product-price">۵۸,۰۰۰,۰۰۰ تومان</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('main-menu');
+      menu.style.display = (menu.style.display === 'flex' || menu.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function showCategory(catId) {
+      document.querySelectorAll('.category').forEach(cat => cat.classList.remove('active'));
+      document.getElementById(catId).classList.add('active');
+      if (window.innerWidth <= 767) {
+        toggleMenu(); // بستن منو در موبایل بعد از انتخاب دسته
+      }
+    }
+  </script>
+
+</body>
+</html>
